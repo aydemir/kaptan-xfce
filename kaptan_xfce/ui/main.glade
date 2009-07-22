@@ -4,9 +4,7 @@
   <!-- interface-naming-policy project-wide -->
   <object class="GtkWindow" id="mainWindow">
     <property name="visible">True</property>
-    <property name="border_width">4</property>
     <property name="decorated">False</property>
-    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>

@@ -5,6 +5,8 @@
 # @license: GPLv3
 #
 
+import os
+
 import gobject
 import gtk
 
@@ -30,7 +32,7 @@ class MainWindow:
         
     def content(self):
         self.mainView = webkit.WebView()
-        self.mainView.open("file:///usr/share/doc/midori/user/midori.html")
+        self.mainView.open('%s/kaptan_xfce/html/main.html' % os.getcwd())
 
         return self.mainView
 
