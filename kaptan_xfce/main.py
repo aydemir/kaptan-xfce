@@ -36,5 +36,8 @@ class MainWindow:
 
         return self.mainView
 
+    def quit(self):
+        gtk.main_quit()
+
     def main(self):
         gtk.main()
