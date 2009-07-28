@@ -5,14 +5,19 @@
 # @license: GPLv3
 #
 
-# General applications informations.
+import os
+import pkg_resources
+
+# General applications informations
 APPNAME = "Kaptan"
 VERSION = "0.1"
 WEBSITE = "http://www.gokmengorgen.net"
 AUTHORS = """\
 Gökmen Görgen, <gkmngrgn@gmail.com>
 """
-TRANSLATORS = "translator-credits"
+TRANSLATOR_CREDITS = """\
+translator-credits
+"""
 COPYRIGHT = "Copyright \302\251 2009 Gökmen Görgen, <gkmngrgn@gmail.com>"
 LICENSE = """\
 Pardus Kaptan lets you configure your desktop on first login.
@@ -32,3 +37,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.\
 """ % COPYRIGHT
 SUMMARY = "Pardus Captain"
+
+# Common functions
+def get_file(filename):
+    return pkg_resources.resource_filename('kaptan_xfce',
+                                            os.path.join('ui', filename))
