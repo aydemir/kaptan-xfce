@@ -2,41 +2,58 @@
 <interface>
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy project-wide -->
-  <object class="GtkWindow" id="mainWindow">
+  <object class="GtkWindow" id="main_window">
     <child>
-      <object class="GtkVBox" id="vbox1">
+      <object class="GtkVBox" id="main_vbox">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkHBox" id="hbox2">
+          <object class="GtkImage" id="kaptan-logo">
+            <property name="height_request">50</property>
             <property name="visible">True</property>
-            <child>
-              <object class="GtkLabel" id="label1">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">There will be
-horizontal menu.</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label2">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">There will be contents.</property>
-              </object>
-              <packing>
-                <property name="position">1</property>
-              </packing>
-            </child>
+            <property name="xalign">1</property>
+            <property name="yalign">0</property>
+            <property name="xpad">5</property>
+            <property name="ypad">5</property>
+            <property name="pixbuf">kaptan-logo.png</property>
           </object>
           <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
             <property name="position">0</property>
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="hbox1">
+          <object class="GtkHSeparator" id="hseparator2">
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="content_hbox">
+            <property name="visible">True</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHSeparator" id="hseparator1">
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="button_hbox">
             <property name="visible">True</property>
             <property name="border_width">5</property>
             <child>
@@ -123,7 +140,7 @@ horizontal menu.</property>
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
-            <property name="position">1</property>
+            <property name="position">4</property>
           </packing>
         </child>
       </object>
