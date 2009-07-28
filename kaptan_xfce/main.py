@@ -6,35 +6,26 @@
 #
 
 import os
-
-import gobject
 import gtk
 
-import webkit
-
-gobject.threads_init()
+from aboutdialog import AboutDialog
 
 class MainWindow:
     def __init__(self):
-        self.mainView = webkit.WebView()
-
         self.builder = gtk.Builder()
-        self.builder.add_from_file('kaptan_xfce/ui/main.glade')
+        self.builder.add_from_file('kaptan_xfce/ui/kaptan-xfce.glade')
         self.builder.connect_signals({
+            'on_about_button_clicked': self.aboutdialog,
             'gtk_main_quit': gtk.main_quit,
             })
 
         self.mainWindow = self.builder.get_object('mainWindow')
         self.mainWindow.fullscreen()
-        self.mainWindow.add(self.content())
 
         self.mainWindow.show_all()
-        
-    def content(self):
-        self.mainView = webkit.WebView()
-        self.mainView.open('%s/kaptan_xfce/html/main.html' % os.getcwd())
 
-        return self.mainView
+    def aboutdialog(self, widget = None):
+        AboutDialog()
 
     def quit(self):
         gtk.main_quit()
