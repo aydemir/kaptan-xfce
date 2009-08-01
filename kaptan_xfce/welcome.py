@@ -32,9 +32,9 @@ class Welcome:
         widget.add(label)
         
     def welcome_image(self, widget):
-        from common import get_file
+        from common import getFile
 
         image = gtk.Image()
-        image.set_from_file(get_file('kaptan_welcome.png'))
+        image.set_from_file(getFile('kaptan_welcome.png'))
         
         widget.add(image)

@@ -38,7 +38,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.\
 """ % COPYRIGHT
 SUMMARY = "Pardus Captain"
 
-# Common functions
-def get_file(filename):
+# Common functions, variables
+from os import environ
+
+config_directory = '%s/.config/xfce4' % environ['HOME']
+
+def getFile(filename):
     return pkg_resources.resource_filename('kaptan_xfce',
                                             os.path.join('ui', filename))
+
+def changeXmlValue(filename, name, value):
+    from xml.etree import ElementTree as ET
+    
+    xml_file = ET.parse(filename)
+    property_list = xml_file.getiterator('property')
+    
+    for property in property_list:
+        if property.attrib['name'] == name:
+            property.attrib['value'] = value
+            
+            break
+
+    xml_file.write(filename)

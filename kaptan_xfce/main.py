@@ -8,12 +8,12 @@
 import os
 import gtk
 
-from common import get_file
+from common import getFile
 
 class MainWindow:
     def __init__(self):
         self.builder = gtk.Builder()
-        self.builder.add_from_file(get_file('kaptan-xfce.glade'))
+        self.builder.add_from_file(getFile('kaptan-xfce.glade'))
         self.builder.connect_signals({
             'on_about_button_clicked': self.aboutDialog,
             'gtk_main_quit': gtk.main_quit,

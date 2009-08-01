@@ -9,7 +9,7 @@ import gtk
 
 # FIX ME: Url show does not work.
 #~ from gnome import url_show
-from common import get_file
+from common import getFile
 from common import SUMMARY, APPNAME, AUTHORS, TRANSLATOR_CREDITS, \
                     VERSION, LICENSE, COPYRIGHT, WEBSITE
 
@@ -27,8 +27,8 @@ class AboutDialog(gtk.AboutDialog):
         self.set_website(WEBSITE)
         self.set_website_label(WEBSITE)
         self.set_copyright(COPYRIGHT)
-        self.set_logo(gtk.gdk.pixbuf_new_from_file(get_file("kaptan-logo.png")))
-        self.set_icon(gtk.gdk.pixbuf_new_from_file(get_file("kaptan-logo.png")))
+        self.set_logo(gtk.gdk.pixbuf_new_from_file(getFile("kaptan-logo.png")))
+        self.set_icon(gtk.gdk.pixbuf_new_from_file(getFile("kaptan-logo.png")))
 
         self.show_all()
         self.run()
