@@ -27,7 +27,7 @@ class AboutDialog(gtk.AboutDialog):
         self.set_website(WEBSITE)
         self.set_website_label(WEBSITE)
         self.set_copyright(COPYRIGHT)
-        self.set_logo(gtk.gdk.pixbuf_new_from_file(get_file("kaptan.png")))
+        self.set_logo(gtk.gdk.pixbuf_new_from_file(get_file("kaptan-logo.png")))
         self.set_icon(gtk.gdk.pixbuf_new_from_file(get_file("kaptan-logo.png")))
 
         self.show_all()

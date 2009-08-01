@@ -14,8 +14,8 @@
             <property name="xalign">1</property>
             <property name="yalign">0</property>
             <property name="xpad">5</property>
-            <property name="ypad">5</property>
-            <property name="pixbuf">kaptan-logo.png</property>
+            <property name="ypad">4</property>
+            <property name="pixbuf">kaptan.png</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -61,7 +61,16 @@
               </packing>
             </child>
             <child>
-              <placeholder/>
+              <object class="GtkVBox" id="content_vbox">
+                <property name="visible">True</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <placeholder/>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
             </child>
           </object>
           <packing>

@@ -30,12 +30,11 @@ class MainWindow:
         gtk.main_quit()
 
     def content(self, builder):
-        hbox = builder.get_object('content_hbox')
+        from welcome import Welcome
+        
+        Welcome(builder)
 
-        content_label = gtk.Label("Content Label")
         self.sidebarMenu(builder, 3)
-
-        hbox.pack_end(content_label)
 
     def sidebarMenu(self, builder, page_number):
         from sidebarmenu import SidebarMenu
