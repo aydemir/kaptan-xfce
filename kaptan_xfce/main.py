@@ -8,7 +8,6 @@
 import os
 import gtk
 
-from aboutdialog import AboutDialog
 from common import get_file
 
 class MainWindow:
@@ -27,29 +26,26 @@ class MainWindow:
 
         self.main_window.show_all()
 
-    def aboutDialog(self, widget = None):
-        AboutDialog()
-
     def quit(self):
         gtk.main_quit()
 
     def content(self, builder):
         hbox = builder.get_object('content_hbox')
 
-        content_label = gtk.Label('Content Label')
-        self.verticalMenu(builder, hbox)
+        content_label = gtk.Label("Content Label")
+        self.sidebarMenu(builder)
 
         hbox.pack_end(content_label)
 
-    def verticalMenu(self, builder, hbox):
-        menu_items = ["<big><b>Welcome!</b></big>", "Mouse", "Themes", "Menu", \
-                      "Wallpaper", "Package", "Summary", "Good Bye!"]
+    def sidebarMenu(self, builder):
+        from sidebarmenu import SidebarMenu
 
-        vertical_menu_label = gtk.Label()
-        vertical_menu_label.set_markup('» %s' % '\n'.join(menu_items))
+        SidebarMenu(builder)
 
-        hbox.pack_start(vertical_menu_label, expand = 0,
-                        fill = 0, padding = 5)
+    def aboutDialog(self, widget = None):
+        from aboutdialog import AboutDialog
+
+        AboutDialog()
 
     def main(self):
         gtk.main()
