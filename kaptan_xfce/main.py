@@ -33,14 +33,14 @@ class MainWindow:
         hbox = builder.get_object('content_hbox')
 
         content_label = gtk.Label("Content Label")
-        self.sidebarMenu(builder)
+        self.sidebarMenu(builder, 3)
 
         hbox.pack_end(content_label)
 
-    def sidebarMenu(self, builder):
+    def sidebarMenu(self, builder, page_number):
         from sidebarmenu import SidebarMenu
 
-        SidebarMenu(builder)
+        SidebarMenu(builder, page_number)
 
     def aboutDialog(self, widget = None):
         from aboutdialog import AboutDialog
