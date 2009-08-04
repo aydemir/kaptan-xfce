@@ -30,9 +30,12 @@ class MainWindow:
         gtk.main_quit()
 
     def content(self, builder):
-        from welcome import Welcome
-        
-        Welcome(builder)
+        #~ from welcome import Welcome
+        from setting_wallpaper import WallpaperSettings
+
+        widget = builder.get_object('content_vbox')
+        #~ Welcome(widget)
+        WallpaperSettings(widget)
 
         self.sidebarMenu(builder, 3)
 
