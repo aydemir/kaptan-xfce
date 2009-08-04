@@ -8,16 +8,21 @@
 import gtk
 
 class Welcome:
-    def __init__(self, builder):
-        widget = builder.get_object('content_vbox')
+    def __init__(self, widget):
+        vbox = gtk.VBox(homogeneous = False, spacing = 0)
+        widget.pack_start(vbox, expand = True, fill = True, padding = 0)
 
-        hbox = gtk.HBox(homogeneous = False, spacing = 0)
-        widget.pack_start(hbox, expand = False, fill = True, padding = 0)
-        
-        self.welcome_label(hbox)
-        self.welcome_image(hbox)
+        self.welcomeImage(vbox)
+        self.welcomeLabel(vbox)
 
-    def welcome_label(self, widget):
+    def welcomeImage(self, widget):
+        from common import getFile
+
+        image = gtk.Image()
+        image.set_from_file(getFile('kaptan_welcome.png'))
+        widget.add(image)
+
+    def welcomeLabel(self, widget):
         label = gtk.Label()
         label.set_markup("This application, called Kaptan Desktop, will"
             " help you with your basic but sufficient setup for your"
@@ -30,11 +35,3 @@ class Welcome:
         label.set_line_wrap(True)
 
         widget.add(label)
-        
-    def welcome_image(self, widget):
-        from common import getFile
-
-        image = gtk.Image()
-        image.set_from_file(getFile('kaptan_welcome.png'))
-        
-        widget.add(image)
