@@ -20,10 +20,7 @@ class MainWindow:
             })
 
         self.main_window = self.builder.get_object('main_window')
-        self.main_window.fullscreen()
-
         self.content(self.builder)
-
         self.main_window.show_all()
 
     def quit(self):
