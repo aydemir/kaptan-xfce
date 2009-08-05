@@ -14,6 +14,8 @@ from string import capitalize
 
 class WallpaperInformation:
     def __init__(self, widget):
+        widget.hide_all()
+
         self.image(widget)
         self.label(widget)
 
@@ -23,14 +25,14 @@ class WallpaperInformation:
         image = gtk.Image()
         image.set_from_file(getFile('wallpaper.png'))
         
-        widget.add(image)
+        widget.pack_start(image, expand = False, fill = False, padding = 0)
 
     def label(self, widget):
         label = gtk.Label()
         label.set_markup("Infromation about WallpaperSettings. ")
         label.set_line_wrap(True)
         
-        widget.add(label)
+        widget.pack_start(label, expand = False, fill = False)
 
 class Columns:
     (IMAGE, NAME, DESCRIPTION) = range(3)
@@ -45,13 +47,13 @@ class WallpaperSettings:
             wallpaper = gtk.gdk.pixbuf_new_from_file(image)
             self.thumbnails[image] = wallpaper.scale_simple(72, 72, gtk.gdk.INTERP_BILINEAR)
 
-        hbox = gtk.HBox(homogeneous = False, spacing = 0)
+        hbox = gtk.HBox(homogeneous = False, spacing = 5)
         widget.pack_start(hbox, expand = True, fill = True, padding = 0)
 
         sw = gtk.ScrolledWindow()
         sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
-        sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
-        hbox.pack_start(sw)
+        sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        hbox.pack_start(sw, expand = True, fill = True, padding = 0)
 
         # create tree model
         model = self.__create_model()
@@ -61,6 +63,7 @@ class WallpaperSettings:
         treeview.set_rules_hint(True)
         treeview.set_search_column(Columns.NAME)
         treeview.set_property('headers-visible', False)
+        treeview.set_property('enable-search', False)
         treeview.connect('cursor-changed', self.actions)
 
         sw.add(treeview)
@@ -69,7 +72,7 @@ class WallpaperSettings:
         self.__add_columns(treeview)
         
         vbox = gtk.VBox(homogeneous = False, spacing = 0)
-        hbox.pack_end(vbox, expand = True, fill = True, padding = 0)
+        hbox.pack_end(vbox, expand = False, fill = False, padding = 0)
 
         WallpaperInformation(vbox)
 

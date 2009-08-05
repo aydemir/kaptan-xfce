@@ -9,18 +9,15 @@ import gtk
 
 class Welcome:
     def __init__(self, widget):
-        vbox = gtk.VBox(homogeneous = False, spacing = 0)
-        widget.pack_start(vbox, expand = True, fill = True, padding = 0)
-
-        self.welcomeImage(vbox)
-        self.welcomeLabel(vbox)
+        self.welcomeImage(widget)
+        self.welcomeLabel(widget)
 
     def welcomeImage(self, widget):
         from common import getFile
 
         image = gtk.Image()
         image.set_from_file(getFile('kaptan_welcome.png'))
-        widget.add(image)
+        widget.pack_start(image, expand = False, fill = True, padding = 0)
 
     def welcomeLabel(self, widget):
         label = gtk.Label()
@@ -32,6 +29,7 @@ class Welcome:
             " computer literate users' basic desktop needs; helps you"
             " connect to internet, read e-mails, work with office"
             " documents and more!")
-        label.set_line_wrap(True)
+        label.set_justify(gtk.JUSTIFY_FILL)
+        label.set_property('wrap', True)
 
-        widget.add(label)
+        widget.pack_start(label, expand = False, fill = True, padding = 0)

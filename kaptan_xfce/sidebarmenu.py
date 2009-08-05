@@ -18,11 +18,11 @@ class SidebarMenu:
     def create_tags(self, text_buffer):
         import pango
 
-        text_buffer.create_tag("normal", size = 15 * pango.SCALE)
-        text_buffer.create_tag("bigger", weight=pango.WEIGHT_BOLD, size=15 * pango.SCALE)
+        text_buffer.create_tag("normal", size = 12 * pango.SCALE)
+        text_buffer.create_tag("bigger", weight=pango.WEIGHT_BOLD, size=12 * pango.SCALE)
 
     def insert_menu(self, text_buffer, page_number):
-        menu_list = ["Welcome!", "Mouse", "Themes", "Menu", "Wallpaper",
+        menu_list = ["Welcome!", "Wallpaper", "Themes", "Menu", "Mouse",
                      "Package", "Summary", "Good Bye!"]
 
         iter = text_buffer.get_iter_at_offset(0)

@@ -3,6 +3,9 @@
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy project-wide -->
   <object class="GtkWindow" id="main_window">
+    <property name="window_position">center</property>
+    <property name="default_width">800</property>
+    <property name="default_height">400</property>
     <property name="icon">kaptan-logo.png</property>
     <signal name="delete_event" handler="gtk_main_quit"/>
     <child>
@@ -63,6 +66,7 @@
           <object class="GtkHBox" id="content_hbox">
             <property name="visible">True</property>
             <property name="border_width">5</property>
+            <property name="spacing">5</property>
             <child>
               <object class="GtkScrolledWindow" id="scrolledwindow1">
                 <property name="visible">True</property>
@@ -71,7 +75,6 @@
                 <property name="vscrollbar_policy">automatic</property>
                 <child>
                   <object class="GtkTextView" id="textview">
-                    <property name="width_request">250</property>
                     <property name="sensitive">False</property>
                     <property name="pixels_above_lines">5</property>
                     <property name="editable">False</property>
@@ -163,12 +166,13 @@
                 <property name="spacing">5</property>
                 <property name="layout_style">end</property>
                 <child>
-                  <object class="GtkButton" id="button2">
+                  <object class="GtkButton" id="button_previous">
                     <property name="label" translatable="yes">gtk-go-back</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_stock">True</property>
+                    <signal name="clicked" handler="on_button_previous_clicked"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -177,12 +181,13 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="button1">
+                  <object class="GtkButton" id="button_next">
                     <property name="label" translatable="yes">gtk-go-forward</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_stock">True</property>
+                    <signal name="clicked" handler="on_button_next_clicked"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
